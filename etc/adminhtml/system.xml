@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
+    <system>
+         <!-- create section -->
+        <section id="callforprice_settings" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Call for price</label>
+            <!-- Assign section to tab -->
+            <tab>magehit</tab>
+            <resource>Magehit_Callforprice::callforprice</resource>
+            <!-- create group for fields in section -->
+            <group id="callforprice" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Call for price</label>
+                <!-- create field -->
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="button_text" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Call For Price Button Text</label>
+                </field>
+				<field id="email_to" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email To</label>
+                </field>
+				<field id="email_from" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+					<source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+					<comment><![CDATA[Email Sender]]></comment>
+                </field>
+				<field id="email_template" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+					<source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+					<comment><![CDATA[Email Template]]></comment>
+                </field>
+				<field id="email_reply" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Reply Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+					<comment><![CDATA[Email Reply Template]]></comment>
+                </field>
+				<field id="customer_groups" translate="label" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Customer Groups</label>
+					<source_model>Magehit\Callforprice\Model\Source\Customergroup</source_model>
+				</field>
+				<field id="date_range" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Date Range</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="date_from" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>From Date</label>
+                    <comment><![CDATA[Date Format (Year-Month-Date)]]></comment>
+                    <frontend_model>Magehit\Callforprice\Model\Source\Calendar</frontend_model>
+					<depends>
+                        <field id="date_range">1</field>
+                    </depends>
+                </field>
+				<field id="date_to" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>To Date</label>
+                    <comment><![CDATA[Date Format (Year-Month-Date)]]></comment>
+                    <frontend_model>Magehit\Callforprice\Model\Source\Calendar</frontend_model>
+					<depends>
+                        <field id="date_range">1</field>
+                    </depends>
+                </field>
+				<field id="capcha" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Captcha</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[<a target='_blank' href='https://www.google.com/recaptcha'>Register App Id</a>]]></comment>
+                </field>
+				<field id="capcha_appid" translate="label" type="text" sortOrder="115" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Id</label>
+					<depends>
+                        <field id="capcha">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

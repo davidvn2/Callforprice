@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Magehit_Callforprice::callforprice" title="Callforprice Module" sortOrder="80" />
+                        </resource>
+                    </resource>
+                </resource>
+				<resource id="Magehit_Core::core">
+					<resource id="Magehit_Callforprice::callforprice_settings" title="Callforprice settings">
+						<resource id="Magehit_Callforprice::request" title="Callforprice request"/>
+						<resource id="Magehit_Callforprice::settings" title="Callforprice settings"/>
+					</resource>
+				</resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

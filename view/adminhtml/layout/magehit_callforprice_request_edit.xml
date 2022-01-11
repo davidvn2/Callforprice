@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magehit\Callforprice\Block\Adminhtml\Request\Edit" name="magehit_callforprice_request_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Magehit\Callforprice\Block\Adminhtml\Request\Edit\Tabs" name="magehit_callforprice_request_tabs">
+                <block class="Magehit\Callforprice\Block\Adminhtml\Request\Edit\Tab\Request" name="magehit_callforprice_request_edit_tab_post"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">request</argument>
+                    <argument name="block" xsi:type="string">magehit_callforprice_request_edit_tab_post</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

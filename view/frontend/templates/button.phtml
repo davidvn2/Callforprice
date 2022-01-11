@@ -1,0 +1,74 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$helper = $this->helper('Magehit\Callforprice\Helper\Data');
+switch($helper->getActionHandle()){
+	case 'catalog_product_view': // product view options.
+		$_prd 					= $block->getProduct();
+		$itemSelector 			= '.product-info-main';
+		$priceElementSelector	= '.price-box';
+		$cartButtonElementSelector	= '.box-tocart';
+		$classActionButton			= 'form';
+	break;
+	case 'catalog_category_view': // product list options.
+		$_prd 					= $product; 
+		
+		$itemSelector 			= '.product-item';
+		$priceElementSelector	= '.price-box';
+		$cartButtonElementSelector	= '.tocart';
+		$classActionButton			= 'form';
+	break;
+	case 'wishlist_index_index': // wishlist list options.
+		$_prd 					= $block->getItem()->getProduct();
+		$itemSelector 			= '.product-item';
+		$priceElementSelector	= '.price-box';
+		$cartButtonElementSelector	= '.tocart';
+		$classActionButton			= '.box-tocart';
+	break;
+	case 'catalog_product_compare_index': // compare list options.
+		$_prd 					= $product;
+		$itemSelector 			= '.product.info';
+		$priceElementSelector	= '.price-box';
+		$cartButtonElementSelector	= '.tocart';
+		$classActionButton			= 'form';
+	break;
+	case 'catalogsearch_result_index': // search list options.
+		$_prd 					= $product;
+		$itemSelector 			= '.product-item';
+		$priceElementSelector	= '.price-box';
+		$cartButtonElementSelector	= '.tocart';
+		$classActionButton			= 'form';
+	break;
+	default: // default define options class.
+		$_prd 					= $product; 
+		$itemSelector 			= '.product-item,.product-info-main';
+		$priceElementSelector	= '.price-box';
+		$cartButtonElementSelector	= '.tocart,.box-tocart';
+		$classActionButton			= 'form';
+	break;
+}
+$loadformurl = $helper->loadformurl();
+$canshow = $helper->showCallForPriceButton($_prd);
+$enableModule = $helper->enableModule();
+$buttonTitle = $helper->getButtonTitle();
+$productType = $_prd->getTypeID();
+if($canshow == 1 && $enableModule): ?>
+	<div class="callforprice-product" id="productId_<?php echo $_prd->getId() ?>"></div>
+    <script type="text/javascript">
+		require(['jquery','mage/translate','callforprice'], function ($, mage, callforpriceConfig) {
+			var callforpriceConfig = {
+				"productId": <?php echo $_prd->getId() ?>,
+				"buttonTitle": '<?php echo $buttonTitle ?>',
+				"loadformurl": '<?php echo $loadformurl ?>',
+				"itemSelector" : '<?php echo $itemSelector ?>',
+				"priceElementSelector": '<?php echo $priceElementSelector ?>',
+				"cartButtonElementSelector": '<?php echo $cartButtonElementSelector ?>',
+				"modeView": '<?php echo $helper->getActionHandle() ?>',
+				"classActionButton" : '<?php echo $classActionButton ?>',
+				"productType" : '<?php echo $productType ?>'
+			}
+			$('.callforprice-product#productId_<?php echo $_prd->getId() ?>').callforprice(callforpriceConfig);
+		});
+        
+        
+    </script>
+<?php endif; ?>
