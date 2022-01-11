@@ -1,7 +1,16 @@
 <?xml version="1.0"?>
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
     <default>
-        <callforprice_settings>           
+        <callforprice_settings>
+            <callforprice>
+                <class_selector>.product-info-main, .product-item, .product.info</class_selector>
+            </callforprice>
         </callforprice_settings>
     </default>
 </config>

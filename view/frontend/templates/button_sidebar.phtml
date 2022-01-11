@@ -1,6 +1,10 @@
 <?php
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$helper = $this->helper('Magehit\Callforprice\Helper\Data');
+$helper = $this->helper('V2Agency\Callforprice\Helper\Data');
 $_prd 					= $product;
 $itemSelector 			= '.product-item';
 $priceElementSelector	= '.price-box';
@@ -28,7 +32,5 @@ if($canshow == 1 && $enableModule): ?>
 			}
 			$('.callforprice-product#productId_<?php echo $_prd->getId() ?>').callforprice(callforpriceConfig);
 		});
-        
-        
     </script>
 <?php endif; ?>

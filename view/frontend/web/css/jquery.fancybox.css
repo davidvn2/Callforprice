@@ -114,7 +114,7 @@
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
-	background: transparent url('../images/magehit_callforprice/blank.gif'); /* helps IE */
+	background: transparent url('../images/v2agency_callforprice/blank.gif'); /* helps IE */
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	z-index: 8040;
 }

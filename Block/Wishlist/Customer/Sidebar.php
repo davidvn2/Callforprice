@@ -1,8 +1,11 @@
 <?php
-namespace Magehit\Callforprice\Block\Wishlist\Customer;
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Block\Wishlist\Customer;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Pricing\Render;
-
 class Sidebar extends \Magento\Wishlist\Block\Customer\Sidebar
 {
 	public function getProductPriceHtml(
@@ -14,17 +17,14 @@ class Sidebar extends \Magento\Wishlist\Block\Customer\Sidebar
         if (!isset($arguments['zone'])) {
             $arguments['zone'] = $renderZone;
         }
-
         $price = '';
-		$html = $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('Magehit_Callforprice::button_sidebar.phtml')->toHtml();
+		$html = $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('V2Agency_Callforprice::button_sidebar.phtml')->toHtml();
         $priceRender = $this->getPriceRender();
         if ($priceRender) {
             $price = $priceRender->render($priceType, $product, $arguments);
         }
-
         return $price . $html;
     }
-
     /**
      * Get price render block
      *
@@ -47,5 +47,4 @@ class Sidebar extends \Magento\Wishlist\Block\Customer\Sidebar
         }
         return $priceRender;
     }
-
 }

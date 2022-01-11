@@ -1,11 +1,13 @@
 <?php
-namespace Magehit\Callforprice\Controller\Adminhtml\Request;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Controller\Adminhtml\Request;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
-use Magehit\Callforprice\Model\ResourceModel\Request\CollectionFactory;
+use V2Agency\Callforprice\Model\ResourceModel\Request\CollectionFactory;
 use Magento\Framework\Controller\ResultFactory;
-
 class MassDelete extends \Magento\Backend\App\Action
 {
 	protected $_filter;
@@ -13,7 +15,6 @@ class MassDelete extends \Magento\Backend\App\Action
      * @var CollectionFactory
      */
     protected $_collectionFactory;
-
 
     /**
      * @param Context $context
@@ -36,13 +37,10 @@ class MassDelete extends \Magento\Backend\App\Action
     {
         $collection = $this->_filter->getCollection($this->_collectionFactory->create());
         $collectionSize = $collection->getSize();
-
         foreach ($collection as $item) {
             $item->delete();
         }
-
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been deleted.', $collectionSize));
-
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');

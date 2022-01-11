@@ -1,5 +1,9 @@
 <?php
-namespace Magehit\Callforprice\Ui\Component\Listing\Column;
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Ui\Component\Listing\Column;
 class RequestActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
     /**
@@ -7,13 +11,13 @@ class RequestActions extends \Magento\Ui\Component\Listing\Columns\Column
      * 
      * @var string
      */
-    const URL_PATH_EDIT = 'magehit_callforprice/request/edit';
+    const URL_PATH_EDIT = 'v2agency_callforprice/request/edit';
     /**
      * Url path  to delete
      * 
      * @var string
      */
-    const URL_PATH_DELETE = 'magehit_callforprice/request/delete';
+    const URL_PATH_DELETE = 'v2agency_callforprice/request/delete';
     /**
      * URL builder
      * 

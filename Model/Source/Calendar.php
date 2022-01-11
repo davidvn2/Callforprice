@@ -1,16 +1,15 @@
 <?php
- 
-namespace Magehit\Callforprice\Model\Source;
- 
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Model\Source;
 use Magento\Framework\Registry;
- 
 class Calendar extends \Magento\Config\Block\System\Config\Form\Field {
- 
     /**
      * @var  Registry
      */
     protected $_coreRegistry;
- 
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param Registry $coreRegistry
@@ -22,7 +21,6 @@ class Calendar extends \Magento\Config\Block\System\Config\Form\Field {
         $this->_coreRegistry = $coreRegistry;
         parent::__construct($context, $data);
     }
- 
     protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element) {
         $baseURL = $this->getBaseUrl();
         $html = $element->getElementHtml();
@@ -43,5 +41,4 @@ class Calendar extends \Magento\Config\Block\System\Config\Form\Field {
             </script>';
         return $html;
     }
- 
 }

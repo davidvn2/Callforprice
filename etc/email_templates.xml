@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
-	<template id="callforprice_settings_callforprice_email_template" label="Email Template" file="email_template.html" type="html" module="Magehit_Callforprice" area="frontend"/>
-	<template id="callforprice_settings_callforprice_email_reply" label="Email Reply Template" file="email_reply_template.html" type="html" module="Magehit_Callforprice" area="frontend"/>
+	<template id="callforprice_settings_callforprice_email_template" label="Email Template" file="email_template.html" type="html" module="V2Agency_Callforprice" area="frontend"/>
+	<template id="callforprice_settings_callforprice_email_reply" label="Email Reply Template" file="email_reply_template.html" type="html" module="V2Agency_Callforprice" area="frontend"/>
 </config>

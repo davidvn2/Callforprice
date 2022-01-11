@@ -1,7 +1,9 @@
 <?php
-
-namespace Magehit\Callforprice\Setup;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Setup;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Module\Setup\Migration;
@@ -9,12 +11,10 @@ use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Catalog\Setup\CategorySetupFactory;
-
 /**
  * @codeCoverageIgnore
  */
 class InstallData implements InstallDataInterface {
-
     /**
      * EAV setup factory
      *
@@ -27,7 +27,6 @@ class InstallData implements InstallDataInterface {
      * @var EavSetupFactory
      */
 	private $categorySetupFactory;
-
     /**
      * Init
      *
@@ -37,15 +36,12 @@ class InstallData implements InstallDataInterface {
         $this->eavSetupFactory = $eavSetupFactory;
 		$this->categorySetupFactory = $categorySetupFactory;
     }
-
     /**
      * {@inheritdoc}
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context) {
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
-
-        
         $eavSetup->addAttribute(
                 \Magento\Catalog\Model\Product::ENTITY, 'call_for_price_active', [
             'group' => 'Product Details',
@@ -70,11 +66,9 @@ class InstallData implements InstallDataInterface {
             'unique' => false,
             'apply_to' => 'simple,configurable,virtual,bundle,downloadable,grouped'
         ]);
-		
 		/** @var categorySetupFactory $categorySetup */
 		$installer = $setup;
         $installer->startSetup();
-		
 		$categoryCode = "call_for_price_active";
 		// create attribute of category
 		$categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
@@ -106,5 +100,4 @@ class InstallData implements InstallDataInterface {
 		);
 		$installer->endSetup();
     }
-
 }

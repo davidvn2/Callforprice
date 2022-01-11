@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../Magento/Ui/etc/ui_configuration.xsd">
-
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">callforprice_request_listing.callforprice_request_listing_data_source</item>
             <item name="deps" xsi:type="string">callforprice_request_listing.callforprice_request_listing_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">callforprice_request_listing_columns</item>
-
     </argument>
-    
     <dataSource name="callforprice_request_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="name" xsi:type="string">callforprice_request_listing_data_source</argument>
-            <argument name="class" xsi:type="string">Magehit\Callforprice\Ui\DataProvider\RequestDataProvider</argument>
+            <argument name="class" xsi:type="string">V2Agency\Callforprice\Ui\DataProvider\RequestDataProvider</argument>
             <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
@@ -68,7 +69,6 @@
                     </item>
                 </item>
             </argument>
-
             <filterInput name="customer_name">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
@@ -77,7 +77,6 @@
                     </item>
                 </argument>
             </filterInput>
-
 			<filterInput name="customer_email">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
@@ -164,7 +163,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="magehit_callforprice/request/massDelete"/>
+                        <item name="url" xsi:type="url" path="v2agency_callforprice/request/massDelete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete items</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
@@ -233,7 +232,7 @@
                     <item name="enabled" xsi:type="boolean">true</item>
                     <item name="indexField" xsi:type="string">id</item>
                     <item name="clientConfig" xsi:type="array">
-                        <item name="saveUrl" xsi:type="url" path="magehit_callforprice/request/inlineEdit"/>
+                        <item name="saveUrl" xsi:type="url" path="v2agency_callforprice/request/inlineEdit"/>
                         <item name="validateBeforeSave" xsi:type="boolean">false</item>
                     </item>
                 </item>
@@ -359,7 +358,7 @@
         </column>
 		<column name="status">
             <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Magehit\Callforprice\Model\Source\Status</item>
+                <item name="options" xsi:type="object">V2Agency\Callforprice\Model\Source\Status</item>
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
@@ -369,7 +368,7 @@
                 </item>
             </argument>
         </column>
-		<actionsColumn name="actions" class="Magehit\Callforprice\Ui\Component\Listing\Column\RequestActions">
+		<actionsColumn name="actions" class="V2Agency\Callforprice\Ui\Component\Listing\Column\RequestActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>

@@ -1,7 +1,9 @@
 <?php
-
-namespace Magehit\Callforprice\Controller\Adminhtml\Request;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Controller\Adminhtml\Request;
 class InlineEdit extends \Magento\Backend\App\Action
 {
     /**
@@ -10,24 +12,22 @@ class InlineEdit extends \Magento\Backend\App\Action
      * @var \Magento\Framework\Controller\Result\JsonFactory
      */
     protected $_jsonFactory;
-
     /**
      * Post Factory
      * 
-     * @var \Magehit\Callforprice\Model\RequestFactory
+     * @var \V2Agency\Callforprice\Model\RequestFactory
      */
     protected $_requestFactory;
-
     /**
      * constructor
      * 
      * @param \Magento\Framework\Controller\Result\JsonFactory $jsonFactory
-     * @param \Magehit\Callforprice\Model\RequestFactory $requestFactory
+     * @param \V2Agency\Callforprice\Model\RequestFactory $requestFactory
      * @param \Magento\Backend\App\Action\Context $context
      */
     public function __construct(
         \Magento\Framework\Controller\Result\JsonFactory $jsonFactory,
-        \Magehit\Callforprice\Model\RequestFactory $requestFactory,
+        \V2Agency\Callforprice\Model\RequestFactory $requestFactory,
         \Magento\Backend\App\Action\Context $context
     )
     {
@@ -35,7 +35,6 @@ class InlineEdit extends \Magento\Backend\App\Action
         $this->_requestFactory = $requestFactory;
         parent::__construct($context);
     }
-
     /**
      * @return \Magento\Framework\Controller\ResultInterface
      */
@@ -53,7 +52,7 @@ class InlineEdit extends \Magento\Backend\App\Action
             ]);
         }
         foreach (array_keys($postItems) as $requestId) {
-            /** @var \\Magehit\Callforprice\\Model\Request $request */
+            /** @var \\V2Agency\Callforprice\\Model\Request $request */
             $request = $this->_requestFactory->create()->load($requestId);
             try {
                 $requestData = $postItems[$requestId];//todo: handle dates
@@ -78,15 +77,14 @@ class InlineEdit extends \Magento\Backend\App\Action
             'error' => $error
         ]);
     }
-
     /**
      * Add Request id to error message
      *
-     * @param \Magehit\Callforprice\Model\Request $request
+     * @param \V2Agency\Callforprice\Model\Request $request
      * @param string $errorText
      * @return string
      */
-    protected function getErrorWithRequestId(\Magehit\Callforprice\Model\Request $request, $errorText)
+    protected function getErrorWithRequestId(\V2Agency\Callforprice\Model\Request $request, $errorText)
     {
         return '[Request ID: ' . $request->getId() . '] ' . $errorText;
     }

@@ -1,13 +1,15 @@
 <?php
-namespace Magehit\Callforprice\Block\CatalogSearch;
- 
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Block\CatalogSearch;
 class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
 {
 	public function getProductPrice(\Magento\Catalog\Model\Product $product)
     {
-		$html = $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('Magehit_Callforprice::button.phtml')->toHtml();
+		$html = $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('V2Agency_Callforprice::button.phtml')->toHtml();
         $priceRender = $this->getPriceRender();
-
         $price = '';
         if ($priceRender) {
             $price = $priceRender->render(
@@ -21,7 +23,6 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
                 ]
             );
         }
-
         return $price . $html;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Magehit\Callforprice\Block\Product\Compare;
+namespace V2Agency\Callforprice\Block\Product\Compare;
  
 class ListCompare extends \Magento\Catalog\Block\Product\Compare\ListCompare
 {
@@ -12,7 +12,7 @@ class ListCompare extends \Magento\Catalog\Block\Product\Compare\ListCompare
      */
     public function getProductPrice(\Magento\Catalog\Model\Product $product, $idSuffix = '')
     {
-		$html = $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('Magehit_Callforprice::button.phtml')->toHtml();
+		$html = $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('V2Agency_Callforprice::button.phtml')->toHtml();
         /** @var \Magento\Framework\Pricing\Render $priceRender */
         $priceRender = $this->getLayout()->getBlock('product.price.render.default');
 

@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
     <system>
          <!-- create section -->
@@ -6,8 +12,8 @@
             <class>separator-top</class>
             <label>Call for price</label>
             <!-- Assign section to tab -->
-            <tab>magehit</tab>
-            <resource>Magehit_Callforprice::callforprice</resource>
+            <tab>v2agency</tab>
+            <resource>V2Agency_Callforprice::callforprice</resource>
             <!-- create group for fields in section -->
             <group id="callforprice" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Call for price</label>
@@ -18,6 +24,9 @@
                 </field>
 				<field id="button_text" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Call For Price Button Text</label>
+                </field>
+                <field id="class_selector" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Class Selector</label>
                 </field>
 				<field id="email_to" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Send Email To</label>
@@ -39,7 +48,7 @@
                 </field>
 				<field id="customer_groups" translate="label" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Customer Groups</label>
-					<source_model>Magehit\Callforprice\Model\Source\Customergroup</source_model>
+					<source_model>V2Agency\Callforprice\Model\Source\Customergroup</source_model>
 				</field>
 				<field id="date_range" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Date Range</label>
@@ -48,7 +57,7 @@
 				<field id="date_from" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>From Date</label>
                     <comment><![CDATA[Date Format (Year-Month-Date)]]></comment>
-                    <frontend_model>Magehit\Callforprice\Model\Source\Calendar</frontend_model>
+                    <frontend_model>V2Agency\Callforprice\Model\Source\Calendar</frontend_model>
 					<depends>
                         <field id="date_range">1</field>
                     </depends>
@@ -56,7 +65,7 @@
 				<field id="date_to" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>To Date</label>
                     <comment><![CDATA[Date Format (Year-Month-Date)]]></comment>
-                    <frontend_model>Magehit\Callforprice\Model\Source\Calendar</frontend_model>
+                    <frontend_model>V2Agency\Callforprice\Model\Source\Calendar</frontend_model>
 					<depends>
                         <field id="date_range">1</field>
                     </depends>

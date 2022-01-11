@@ -1,23 +1,23 @@
 <?php
-namespace Magehit\Callforprice\Setup;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Setup;
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
-
 class InstallSchema implements InstallSchemaInterface
 {
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $installer = $setup;
-
         $installer->startSetup();
-
         /**
-         * Create table 'magehit_callforprice_request'
+         * Create table 'v2agency_callforprice_request'
          */
         $table = $installer->getConnection()
-            ->newTable($installer->getTable('magehit_callforprice_request'))
+            ->newTable($installer->getTable('v2agency_callforprice_request'))
             ->addColumn(
                 'id',
                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
@@ -89,7 +89,6 @@ class InstallSchema implements InstallSchemaInterface
                 'Status'
             );
         $installer->getConnection()->createTable($table);
-
         $installer->endSetup();
     }
 }

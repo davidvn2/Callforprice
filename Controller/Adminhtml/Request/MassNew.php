@@ -1,11 +1,13 @@
 <?php
-namespace Magehit\Callforprice\Controller\Adminhtml\Request;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Controller\Adminhtml\Request;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
-use Magehit\Callforprice\Model\ResourceModel\Request\CollectionFactory;
+use V2Agency\Callforprice\Model\ResourceModel\Request\CollectionFactory;
 use Magento\Framework\Controller\ResultFactory;
-
 class MassNew extends \Magento\Backend\App\Action
 {
 	protected $_filter;
@@ -13,7 +15,6 @@ class MassNew extends \Magento\Backend\App\Action
      * @var CollectionFactory
      */
     protected $_collectionFactory;
-
 
     /**
      * @param Context $context
@@ -41,9 +42,7 @@ class MassNew extends \Magento\Backend\App\Action
             $item->setSatus(1);
             $item->save();
         }
-
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been set to New', $collectionSize));
-
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');

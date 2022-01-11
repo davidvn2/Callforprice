@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
     <menu>
-        <add id="Magehit_Callforprice::callforprice_settings" title="Callforprice" module="Magehit_Callforprice" sortOrder="25" parent="Magehit_Core::view" resource="Magehit_Callforprice::callforprice_settings"/>
-		<add id="Magehit_Callforprice::request" title="Manage Request" resource="Magehit_Callforprice::request" parent="Magehit_Callforprice::callforprice_settings" action="magehit_callforprice/request" module="Magehit_Callforprice" sortOrder="30"/>
-		<add id="Magehit_Callforprice::settings" title="Settings" resource="Magehit_Callforprice::callforprice" parent="Magehit_Callforprice::callforprice_settings" action="adminhtml/system_config/edit/section/callforprice_settings" module="Magehit_Callforprice" sortOrder="35"/>
+        <add id="V2Agency_Callforprice::callforprice_settings" title="Callforprice" module="V2Agency_Callforprice" sortOrder="25" parent="V2Agency_Core::core" resource="V2Agency_Callforprice::callforprice_settings"/>
+		<add id="V2Agency_Callforprice::request" title="Manage Request" resource="V2Agency_Callforprice::request" parent="V2Agency_Callforprice::callforprice_settings" action="v2agency_callforprice/request" module="V2Agency_Callforprice" sortOrder="30"/>
+		<add id="V2Agency_Callforprice::settings" title="Settings" resource="V2Agency_Callforprice::callforprice" parent="V2Agency_Callforprice::callforprice_settings" action="adminhtml/system_config/edit/section/callforprice_settings" module="V2Agency_Callforprice" sortOrder="35"/>
 	</menu>
 </config>

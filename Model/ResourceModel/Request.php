@@ -1,6 +1,9 @@
 <?php
-namespace Magehit\Callforprice\Model\ResourceModel;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Model\ResourceModel;
 class Request extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     /**
@@ -9,6 +12,6 @@ class Request extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('magehit_callforprice_request', 'id');
+        $this->_init('v2agency_callforprice_request', 'id');
     }
 }

@@ -1,6 +1,9 @@
 <?php
-namespace Magehit\Callforprice\Block\Adminhtml\Request\Edit\Tab;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Block\Adminhtml\Request\Edit\Tab;
 class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
     /**
@@ -9,21 +12,18 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
      * @var \Magento\Cms\Model\Wysiwyg\Config
      */
     protected $_wysiwygConfig;
-
     /**
      * Country options
      * 
      * @var \Magento\Config\Model\Config\Source\Locale\Country
      */
     protected $_countryOptions;
-
     /**
      * Country options
      * 
      * @var \Magento\Config\Model\Config\Source\Yesno
      */
     protected $_booleanOptions;
-
     /**
      * constructor
      * 
@@ -50,7 +50,6 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
         $this->_booleanOptions           = $booleanOptions;
         parent::__construct($context, $registry, $formFactory, $data);
     }
-
     /**
      * Prepare form
      *
@@ -58,8 +57,8 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
      */
     protected function _prepareForm()
     {
-        /** @var \Magehit\Callforprice\Model\Request $request */
-        $request = $this->_coreRegistry->registry('magehit_callforprice_request');
+        /** @var \V2Agency\Callforprice\Model\Request $request */
+        $request = $this->_coreRegistry->registry('v2agency_callforprice_request');
         $form = $this->_formFactory->create(['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']] );
         $form->setHtmlIdPrefix('request_');
         $form->setFieldNameSuffix('request');
@@ -156,20 +155,16 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
             ]
         );
         $fieldset->addField(
-            'status',
-            'select',
+            'statusLabel',
+            'label',
             [
                 'name'  => 'status',
                 'label' => __('Status'),
                 'title' => __('Status'),
-                'values' => array(
-					1 => 'New',
-					2 => 'Replied'
-				),
+                'value' => $request->getStatus() == '1' ? 'New' : 'Replied'
             ]
         );
-
-        $requestData = $this->_session->getData('magehit_callforprice_request_data', true);
+        $requestData = $this->_session->getData('v2agency_callforprice_request_data', true);
         if ($requestData) {
             $request->addData($requestData);
         } else {
@@ -181,7 +176,6 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
         $this->setForm($form);
         return parent::_prepareForm();
     }
-
     /**
      * Prepare label for tab
      *
@@ -191,7 +185,6 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
     {
         return __('Request');
     }
-
     /**
      * Prepare title for tab
      *
@@ -201,7 +194,6 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
     {
         return $this->getTabLabel();
     }
-
     /**
      * Can show tab in tabs
      *
@@ -211,7 +203,6 @@ class Request extends \Magento\Backend\Block\Widget\Form\Generic implements \Mag
     {
         return true;
     }
-
     /**
      * Tab is hidden
      *

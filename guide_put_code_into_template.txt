@@ -1,0 +1,15 @@
+
+Callforprice extension allows you to set and show callforprice products in frontend.
+
+This extension gives ability to show callforprice product in list, view, ...
+
+If you want to show in any other list product you can add line to container class generate item: 
+
+For list, view :
+
+<?php echo $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$_product)->setTemplate('Magehit_Callforprice::button.phtml')->toHtml(); ?>
+
+Or sidebar block have list product :
+
+<?php echo $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$_product)->setTemplate('Magehit_Callforprice::button_sidebar.phtml')->toHtml(); ?>
+	

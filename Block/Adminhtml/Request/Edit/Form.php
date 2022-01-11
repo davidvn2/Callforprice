@@ -1,6 +1,9 @@
 <?php
-namespace Magehit\Callforprice\Block\Adminhtml\Request\Edit;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Block\Adminhtml\Request\Edit;
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
 	/**
@@ -45,7 +48,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function _prepareForm()
     {
-        $model = $this->_coreRegistry->registry('magehit_callforprice_request');
+        $model = $this->_coreRegistry->registry('v2agency_callforprice_request');
 		
         $form = $this->_formFactory->create(['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']] );
 		$form->setHtmlIdPrefix('request_');

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
   <router id="admin">
-    <route id="magehit_callforprice" frontName="magehit_callforprice">
-      <module name="Magehit_Callforprice"/>
+    <route id="v2agency_callforprice" frontName="v2agency_callforprice">
+      <module name="V2Agency_Callforprice"/>
     </route>
   </router>
 </config>

@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <!--
-/**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
-	<preference for="Magento\Catalog\Block\Product\ListProduct" type="Magehit\Callforprice\Block\Product\ListProduct" />
-	<preference for="Magento\CatalogSearch\Block\SearchResult\ListProduct" type="Magehit\Callforprice\Block\CatalogSearch\ListProduct" />
-	<preference for="Magento\Catalog\Block\Product\Compare\ListCompare" type="Magehit\Callforprice\Block\Product\Compare\ListCompare" />
-	<preference for="Magento\Wishlist\Block\Customer\Sidebar" type="Magehit\Callforprice\Block\Wishlist\Customer\Sidebar" />
+    <preference for="Magento\Catalog\Block\Product\ListProduct" type="V2Agency\Callforprice\Block\Product\ListProduct" />
+    <preference for="Magento\CatalogSearch\Block\SearchResult\ListProduct" type="V2Agency\Callforprice\Block\CatalogSearch\ListProduct" />
+    <preference for="Magento\Catalog\Block\Product\Compare\ListCompare" type="V2Agency\Callforprice\Block\Product\Compare\ListCompare" />
+    <preference for="Magento\Wishlist\Block\Customer\Sidebar" type="V2Agency\Callforprice\Block\Wishlist\Customer\Sidebar" />
+    <preference for="Magento\CatalogWidget\Block\Product\ProductsList" type="V2Agency\Callforprice\Block\CatalogWidget\ProductsList" />
 </config>

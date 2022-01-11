@@ -1,38 +1,32 @@
 <?php
-namespace Magehit\Callforprice\Controller\Adminhtml;
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Controller\Adminhtml;
 abstract class AbstractAction extends \Magento\Backend\App\Action
 {
     const PARAM_CRUD_ID = 'id';
-
     protected $_jsHelper;
-
     protected $_storeManager;
-
     protected $_resultForwardFactory;
-
     
     protected $_resultLayoutFactory;
-
     
     protected $_resultPageFactory;
-
     
     protected $_requestFactory;
-
     
     protected $_requestCollectionFactory;
-
     
     protected $_coreRegistry;
-
     
     protected $_fileFactory;
-
   
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magehit\Callforprice\Model\RequestFactory $requestFactory,
-        \Magehit\Callforprice\Model\ResourceModel\Request\CollectionFactory $requestCollectionFactory,
+        \V2Agency\Callforprice\Model\RequestFactory $requestFactory,
+        \V2Agency\Callforprice\Model\ResourceModel\Request\CollectionFactory $requestCollectionFactory,
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Framework\App\Response\Http\FileFactory $fileFactory,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
@@ -50,13 +44,11 @@ abstract class AbstractAction extends \Magento\Backend\App\Action
         $this->_storeManager = $storeManager;
         $this->_jsHelper = $jsHelper;
 
-
         $this->_requestFactory = $requestFactory;
     
         $this->_requestCollectionFactory = $requestCollectionFactory;
      
     }
-
     
     protected function _getBackResultRedirect(\Magento\Framework\Controller\Result\Redirect $resultRedirect, $paramCrudId = null)
     {
@@ -76,7 +68,6 @@ abstract class AbstractAction extends \Magento\Backend\App\Action
             default:
                 $resultRedirect->setPath('*/*/');
         }
-
         return $resultRedirect;
     }
 }

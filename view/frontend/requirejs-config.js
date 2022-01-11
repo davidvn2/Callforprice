@@ -1,13 +1,13 @@
 var config = {
     map: {
-		'*': {
-            callforprice : 'Magehit_Callforprice/js/callforprice',
-			magehit_fancybox: 'Magehit_Callforprice/js/jquery.fancybox',
-			magehit_fancyboxpack: 'Magehit_Callforprice/js/jquery.fancybox.pack',
-			magehit_fancyboxbuttons: 'Magehit_Callforprice/js/jquery.fancybox-buttons',
-			magehit_fancyboxmedia: 'Magehit_Callforprice/js/jquery.fancybox-media',
-			magehit_fancyboxthumbs: 'Magehit_Callforprice/js/jquery.fancybox-thumbs',
-			magehit_mousewheel: 'Magehit_Callforprice/js/jquery.mousewheel-3.0.6.pack'
+        '*': {
+            callforprice: 'V2Agency_Callforprice/js/callforprice',
+            v2agency_fancybox: 'V2Agency_Callforprice/js/jquery.fancybox',
+            v2agency_fancyboxpack: 'V2Agency_Callforprice/js/jquery.fancybox.pack',
+            v2agency_fancyboxbuttons: 'V2Agency_Callforprice/js/jquery.fancybox-buttons',
+            v2agency_fancyboxmedia: 'V2Agency_Callforprice/js/jquery.fancybox-media',
+            v2agency_fancyboxthumbs: 'V2Agency_Callforprice/js/jquery.fancybox-thumbs',
+            v2agency_mousewheel: 'V2Agency_Callforprice/js/jquery.mousewheel-3.0.6.pack'
         }
     }
 };

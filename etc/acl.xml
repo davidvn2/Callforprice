@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
 	<acl>
         <resources>
@@ -6,16 +12,16 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Magehit_Callforprice::callforprice" title="Callforprice Module" sortOrder="80" />
+                            <resource id="V2Agency_Callforprice::callforprice" title="Call For Price" sortOrder="80" />
                         </resource>
                     </resource>
                 </resource>
-				<resource id="Magehit_Core::core">
-					<resource id="Magehit_Callforprice::callforprice_settings" title="Callforprice settings">
-						<resource id="Magehit_Callforprice::request" title="Callforprice request"/>
-						<resource id="Magehit_Callforprice::settings" title="Callforprice settings"/>
-					</resource>
-				</resource>
+                <resource id="V2Agency_Callforprice::callforprice_settings" title="Call For Price">
+                    <resource id="V2Agency_Callforprice::request" title="Requests"/>
+                    <resource id="V2Agency_Callforprice::settings" title="Settings"/>
+                    <resource id="V2Agency_Callforprice::delete" title="Save/Reply Request"/>
+                    <resource id="V2Agency_Callforprice::save" title="Delete Request"/>
+                </resource>
             </resource>
         </resources>
     </acl>

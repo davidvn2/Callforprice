@@ -1,36 +1,33 @@
 <?php
-
-namespace Magehit\Callforprice\Helper;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Helper;
 class Email extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
     protected $_scopeConfig;
- 
     /**
      * Store manager
      *
      * @var \Magento\Store\Model\StoreManagerInterface
      */
     protected $_storeManager;
- 
     /**
      * @var \Magento\Framework\Translate\Inline\StateInterface
      */
     protected $inlineTranslation;
- 
     /**
      * @var \Magento\Framework\Mail\Template\TransportBuilder
      */
     protected $_transportBuilder;
-     
     /**
      * @var string
     */
     protected $temp_id;
- 
     /**
     * @param Magento\Framework\App\Helper\Context $context
     * @param Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
@@ -50,7 +47,6 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
         $this->inlineTranslation = $inlineTranslation;
         $this->_transportBuilder = $transportBuilder; 
     }
- 
     /**
      * Return store configuration value of your template field that which id you set for template
      *
@@ -66,7 +62,6 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
             $storeId
         );
     }
- 
     /**
      * Return store 
      *
@@ -76,7 +71,6 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return $this->_storeManager->getStore();
     }
- 
     /**
      * Return template id according to store
      *
@@ -86,7 +80,6 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return $this->getConfigValue($xmlPath, $this->getStore()->getStoreId());
     }
- 
     /**
      * [generateTemplate description]  with template file and tempaltes variables values                
      * @param  Mixed $emailTemplateVariables 
@@ -110,7 +103,6 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
                 /* ->addTo($receiverInfo['email'],$receiverInfo['name']); */
         return $this;        
     }
- 
     /**
      * [sendInvoicedOrderEmail description]                  
      * @param  Mixed $emailTemplateVariables 
@@ -137,5 +129,4 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
 		}		
         $this->inlineTranslation->resume();
     }
- 
 }

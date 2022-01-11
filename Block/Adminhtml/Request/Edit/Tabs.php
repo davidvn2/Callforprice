@@ -1,6 +1,9 @@
 <?php
-namespace Magehit\Callforprice\Block\Adminhtml\Request\Edit;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Block\Adminhtml\Request\Edit;
 /**
  * @method Tabs setTitle(\string $title)
  */

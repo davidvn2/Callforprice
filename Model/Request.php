@@ -1,6 +1,9 @@
 <?php
-namespace Magehit\Callforprice\Model;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Model;
 class Request extends \Magento\Framework\Model\AbstractModel
 {
 	const STATUS_NEW = 1;
@@ -11,14 +14,13 @@ class Request extends \Magento\Framework\Model\AbstractModel
     protected $_formFieldHtmlIdPrefix = 'page_';
     protected $_storeManager;
     protected $_monolog;
-
     public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
-        \Magehit\Callforprice\Model\ResourceModel\Request $resource,
-        \Magehit\Callforprice\Model\ResourceModel\Request\Collection $resourceCollection,
-        \Magehit\Callforprice\Model\RequestFactory $requestFactory,
-        \Magehit\Callforprice\Model\ResourceModel\Request\CollectionFactory $requestCollectionFactory,
+        \V2Agency\Callforprice\Model\ResourceModel\Request $resource,
+        \V2Agency\Callforprice\Model\ResourceModel\Request\Collection $resourceCollection,
+        \V2Agency\Callforprice\Model\RequestFactory $requestFactory,
+        \V2Agency\Callforprice\Model\ResourceModel\Request\CollectionFactory $requestCollectionFactory,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\Logger\Monolog $monolog
     ) {
@@ -31,19 +33,13 @@ class Request extends \Magento\Framework\Model\AbstractModel
         $this->_requestFactory = $requestFactory;
         $this->_storeManager = $storeManager;
         $this->_requestCollectionFactory = $requestCollectionFactory;
-
         $this->_monolog = $monolog;
-
         if ($storeViewId = $this->_storeManager->getStore()->getId()) {
             $this->_storeViewId = $storeViewId;
         }
     }
-
 	public function getAvailableStatuses()
     {
         return [self::STATUS_NEW => __('New'), self::STATUS_REPLIED => __('Replied')];
     }
-   
-
-    
 }

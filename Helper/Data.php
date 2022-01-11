@@ -1,17 +1,18 @@
 <?php
-namespace Magehit\Callforprice\Helper;
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Helper;
 use Magento\Framework\App\Helper\Context;
-
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
-
 	protected $_objectManager;
 	protected $_timezoneInterface;
 	protected $_registry;
 	protected $_resultPageFactory;
 	protected $_request;
 	protected $_transportBuilder;
-
     /**
      * Block constructor.
      *
@@ -33,70 +34,60 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 		$this->_transportBuilder 	= $transportBuilder;
         parent::__construct($context);
     }
-    
     public function loadFormUrl()
     {
         return $this->_urlBuilder->getUrl('callforprice/index/load');
     }
-
     public function submitFormUrl()
     {
         return $this->_urlBuilder->getUrl('callforprice/index/submit');
     }
-
     public function getButtonTitle()
     {
 		return $this->getConfigValue('callforprice_settings/callforprice/button_text');
     }
-	
 	public function enableModule(){
 		return $this->getConfigValue('callforprice_settings/callforprice/enable');
 	}
-	
     public function allowedCustomerGroup()
     {
 		return $this->getConfigValue('callforprice_settings/callforprice/customer_groups');
     }
-
+    public function getClassSelector()
+    {
+		return $this->getConfigValue('callforprice_settings/callforprice/class_selector');
+    }
     public function getSpecificDateRange()
     {
 		return $this->getConfigValue('callforprice_settings/callforprice/date_range');
     }
-	
     public function getFromDate()
     {
 		return $this->getConfigValue('callforprice_settings/callforprice/date_from');
     }
-	
     public function getToDate()
     {
 		return $this->getConfigValue('callforprice_settings/callforprice/date_to');
     }
-	
     public function getCapchaStatus()
     {
 		return $this->getConfigValue('callforprice_settings/callforprice/capcha');
     }
-	
     public function getCapchaSiteId()
     {
 		return $this->getConfigValue('callforprice_settings/callforprice/capcha_appid');
     }
-	
 	public function getConfigValue($path)
     {
         return $this->scopeConfig->getValue($path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
-	
 	public function getActionHandle(){
 		return $this->_request->getFullActionName();
 	}
-    
 	public function isModuleEnabled($moduleName)
     {
         return $this->_moduleManager->isEnabled($moduleName);
     }
-
     public function getCurrentCustomerGroup()
     {
 		$groupId = 0;
@@ -107,7 +98,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
 		return $groupId;
     }
-
     public function getDateToShowButton()
     {
         if($this->getSpecificDateRange()==1)
@@ -122,7 +112,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
         return 1;        
     }
-	
 	public function getAllowCustomerGroup(){
 		$allowed_customer_groups = array();
         $c_group = $this->getCurrentCustomerGroup(); // current customer group id
@@ -138,7 +127,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 			return 0;
 		}  
 	}
-
     public function showCallForPriceButton($_product)
     {      
 		$cats = array();
@@ -149,7 +137,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 		$checkRangeDate = $this->getDateToShowButton(); 
         $checkCustomerGroup = $this->getAllowCustomerGroup();
         $currentCategory = @$this->_registry->registry('current_category'); // check for current category
-		
         if($currentCategory)
         {
             $cat = $this->_objectManager->get('Magento\Catalog\Model\Category')->load($currentCategory->getId());
@@ -174,7 +161,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 				$callpriceflagparent = 1;
 			}
         } 
-		
         $callforprice = $_product->getCallForPriceActive(); // Check for product 
         if($callforprice ==1 || $callpriceflagparent == 1||$callpriceflag == 1)
         {    
@@ -185,17 +171,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
         return $showCallForPriceButton;
     }
-	
 	public function loadCatsByProductId($productId)
     {
 		$_product 		= $this->_objectManager->get('Magento\Catalog\Model\Product')->load($productId);
 		return $_product->getCategoryIds();
     }
-	
     public function getButtonCallPriceTemplate($product){
 		$resultPage = $this->_resultPageFactory->create();
-        return $resultPage->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('Magehit_Callforprice::button.phtml')->toHtml();
-
+        return $resultPage->getLayout()->createBlock('Magento\Framework\View\Element\Template')->assign('product',$product)->setTemplate('V2Agency_Callforprice::button.phtml')->toHtml();
     }
-	
 }

@@ -1,24 +1,18 @@
 <?php
-
-namespace Magehit\Callforprice\Ui\DataProvider;
-
-use Magehit\Callforprice\Model\ResourceModel\Request\CollectionFactory;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Ui\DataProvider;
+use V2Agency\Callforprice\Model\ResourceModel\Request\CollectionFactory;
 /**
  * Class ProductDataProvider
  */
-
 class RequestDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
-
     protected $collection;
-
-
     protected $addFieldStrategies;
-
     protected $addFilterStrategies;
-
-    
     public function __construct(
         $name,
         $primaryFieldName,
@@ -34,7 +28,4 @@ class RequestDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $this->addFieldStrategies = $addFieldStrategies;
         $this->addFilterStrategies = $addFilterStrategies;
     }
-
-   
-
 }

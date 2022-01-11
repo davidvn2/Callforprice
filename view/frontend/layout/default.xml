@@ -1,12 +1,16 @@
 <?xml version="1.0"?>
-
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<head>
-		<css src="Magehit_Callforprice::css/callforprice.css"/>
-		<css src="Magehit_Callforprice::css/jquery.fancybox.css"/>
+		<css src="V2Agency_Callforprice::css/callforprice.css"/>
+		<css src="V2Agency_Callforprice::css/jquery.fancybox.css"/>
 	</head>
     <body>
 		
 	</body>
 </page>
-

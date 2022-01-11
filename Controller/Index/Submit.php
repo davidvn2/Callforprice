@@ -1,5 +1,9 @@
 <?php
-namespace Magehit\Callforprice\Controller\Index;
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Controller\Index;
 class Submit extends \Magento\Framework\App\Action\Action
 {
     protected $_requestFactory;
@@ -15,9 +19,9 @@ class Submit extends \Magento\Framework\App\Action\Action
 	protected $_escaper;
    
     public function __construct(
-        \Magento\Framework\App\Action\Context$context,
+        \Magento\Framework\App\Action\Context $context,
 		\Magento\Framework\View\Result\PageFactory $resultPageFactory, 
-		\Magehit\Callforprice\Helper\Data $helper,
+		\V2Agency\Callforprice\Helper\Data $helper,
 		\Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
 		\Magento\Framework\Controller\Result\JsonFactory $json,
 		\Magento\Store\Model\StoreManagerInterface $storeManager,
@@ -36,14 +40,13 @@ class Submit extends \Magento\Framework\App\Action\Action
 		$this->_escaper 	 		  = $escaper;
         parent::__construct($context);
     }
-
     public function execute()
     {
 		$message  = "";
 		$postData = $this->getRequest()->getPost();
 		if ($postData){
 			$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-			$cp = $objectManager->create('Magehit\Callforprice\Model\Request');
+			$cp = $objectManager->create('V2Agency\Callforprice\Model\Request');
             $name = $postData['name'];
             $email = $postData['email'];
             $telephone = $postData['telephone'];
@@ -78,7 +81,7 @@ class Submit extends \Magento\Framework\App\Action\Action
 				$senderInfo = $this->_helper->getConfigValue('callforprice_settings/callforprice/email_from');
 				
 				/* call send mail method from helper or where you define it*/ 
-				$objectManager->get('Magehit\Callforprice\Helper\Email')->sendMail($templateId,$data,$senderInfo,$receiverInfo);
+				$objectManager->get('V2Agency\Callforprice\Helper\Email')->sendMail($templateId,$data,$senderInfo,$receiverInfo);
 				
                 $success =true; 
                 $message = __('Your request is accepted.');

@@ -1,7 +1,12 @@
 <?xml version="1.0"?>
-
+<!--
+    /**
+    * Copyright © 2019 V2Agency . All rights reserved.
+    * 
+    */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="controller_action_predispatch_wishlist_index_allcart">
-        <observer name="callforprice_wishlist_index_allcart" instance="Magehit\Callforprice\Observer\CheckProductCallForPrice" />
+        <observer name="callforprice_wishlist_index_allcart" instance="V2Agency\Callforprice\Observer\CheckProductCallForPrice" />
     </event>
 </config>

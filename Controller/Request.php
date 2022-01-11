@@ -1,15 +1,17 @@
 <?php
-namespace Magehit\Callforprice\Controller;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Controller;
 abstract class Request extends \Magento\Backend\App\Action
 {
     /**
      * Post Factory
      * 
-     * @var \Magehit\Callforprice\Model\RequestFactory
+     * @var \V2Agency\Callforprice\Model\RequestFactory
      */
     protected $_requestFactory;
-
     /**
      * Core registry
      * 
@@ -17,17 +19,16 @@ abstract class Request extends \Magento\Backend\App\Action
      */
     protected $_coreRegistry;
 
-
     /**
      * constructor
      * 
-     * @param \Magehit\Callforprice\Model\RequestFactory $requestFactory
+     * @param \V2Agency\Callforprice\Model\RequestFactory $requestFactory
      * @param \Magento\Framework\Registry $coreRegistry
      * @param \Magento\Backend\Model\View\Result\RedirectFactory $resultRedirectFactory
      * @param \Magento\Backend\App\Action\Context $context
      */
     public function __construct(
-        \Magehit\Callforprice\Model\RequestFactory $requestFactory,
+        \V2Agency\Callforprice\Model\RequestFactory $requestFactory,
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Backend\App\Action\Context $context
     )
@@ -36,22 +37,20 @@ abstract class Request extends \Magento\Backend\App\Action
         $this->_coreRegistry          = $coreRegistry;
         parent::__construct($context);
     }
-
     /**
      * Init Request
      *
-     * @return \Magehit\Callforprice\Model\Request
+     * @return \V2Agency\Callforprice\Model\Request
      */
     protected function _initRequest()
     {
         $requestId  = (int) $this->getRequest()->getParam('id');
-        /** @var \Magehit\Callforprice\Model\Request $request */
+        /** @var \V2Agency\Callforprice\Model\Request $request */
         $request    = $this->_requestFactory->create();
         if ($requestId) {
             $request->load($requestId);
         }
-        $this->_coreRegistry->register('magehit_callforprice_request', $request);
+        $this->_coreRegistry->register('v2agency_callforprice_request', $request);
         return $request;
     }
-
 }

@@ -1,20 +1,20 @@
 <?php
-namespace Magehit\Callforprice\Controller\Adminhtml\Request;
-
+/**
+ * Copyright © 2019 V2Agency . All rights reserved.
+ * 
+ */
+namespace V2Agency\Callforprice\Controller\Adminhtml\Request;
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
-
 class Delete extends \Magento\Backend\App\Action
 {
-
     /**
      * {@inheritdoc}
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Magehit_Callforprice::delete');
+        return $this->_authorization->isAllowed('V2Agency_Callforprice::delete');
     }
-
     /**
      * Delete action
      *
@@ -27,7 +27,7 @@ class Delete extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
-                $model = $this->_objectManager->create('Magehit\Callforprice\Model\Request');
+                $model = $this->_objectManager->create('V2Agency\Callforprice\Model\Request');
                 $model->load($id);
                 $model->delete();
                 $this->messageManager->addSuccess(__('The request has been deleted.'));
